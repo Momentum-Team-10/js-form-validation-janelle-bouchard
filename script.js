@@ -27,9 +27,9 @@ form.addEventListener ("submit", (event) => {
     event.preventDefault()
     validateName(nameInput)
     // validateCarDetails(carYearInput, carMakeInput, carModelInput)
-    validateCarYear(carYearInput)
-    validateCarMake(carMakeInput)
-    validateCarModel(carModelInput)
+    // validateCarYear(carYearInput)
+    // validateCarMake(carMakeInput)
+    // validateCarModel(carModelInput)
     validateStartDate(startDateInput)
     validateDays(numDaysInput)
     validateCardNum(cardNumInput)
@@ -38,13 +38,15 @@ form.addEventListener ("submit", (event) => {
     // total.innerText = "$" + (days.value *= 5)
 })
 
-
 // Name field must contain text
 function validateName (input) {
     let errorElement = document.createElement('p')
     errorElement.id = "name-error"
     // console.log(input.value)
     if (input.value === "") {
+        if (document.getElementById('name-error')) {
+            document.getElementById('name-error').remove()
+        }
         errorElement.innerText = 'Name is required!'
         document.getElementById('name-field').appendChild(errorElement)
         nameInput.classList.remove('input-valid')
@@ -60,84 +62,92 @@ function validateName (input) {
     } 
 }
 
-// All car fields must be valid
-// function validateCarDetails(yearInput, makeInput, modelInput) {
-//         if (validateCarYear || validateCarMake || validateCarModel) {
-//             carDetailsLabel.classList.remove('input-valid')
-//             carDetailsLabel.classList.add('input-invalid')
+// // All car fields must be valid
+// // function validateCarDetails(yearInput, makeInput, modelInput) {
+// //         if (validateCarYear || validateCarMake || validateCarModel) {
+// //             carDetailsLabel.classList.remove('input-valid')
+// //             carDetailsLabel.classList.add('input-invalid')
+// //         } else { 
+// //             carDetailsLabel.classList.remove('input-invalid')
+// //             carDetailsLabel.classList.add('input-valid')
+// //     } 
+// // }
+
+
+// // currentYear > carYearInput (4 digit number) > 1990
+// function validateCarYear (input) {
+//     let errorElement = document.createElement('p')
+//     errorElement.id = "car-year-error"
+//     console.log(input.value)
+//         if (input.value === "") {        
+                // if (document.getElementById('car-year-error')) {
+                //         document.getElementById('car-year-error').remove()
+                // }
+//             errorElement.innerText = 'Car year is required!'
+//             document.getElementById('car-field').appendChild(errorElement)
+//             carYearInput.classList.remove('input-valid')
+//             // carDetailsLabel.classList.remove('input-valid')
+//             carYearInput.classList.add('input-invalid')
+//             // carDetailsLabel.classList.add('input-invalid')
 //         } else { 
-//             carDetailsLabel.classList.remove('input-invalid')
-//             carDetailsLabel.classList.add('input-valid')
+//             document.getElementById('car-model-error').remove()
+//             carYearInput.classList.remove('input-invalid')
+//             // carDetailsLabel.classList.remove('input-invalid')
+//             carYearInput.classList.add('input-valid')
+//             // carDetailsLabel.classList.add('input-valid')
 //     } 
 // }
 
+// function validateCarMake (input) {
+//     let errorElement = document.createElement('p')
+//     errorElement.id = "car-make-error"
+//     console.log(input.value)
+//         if (input.value === "") {
+            // if (document.getElementById('car-make-error')) {
+            //         document.getElementById('car-make-error').remove()
+            // }
+            // errorElement.innerText = 'Car make is required!'
+//             document.getElementById('car-field').appendChild(errorElement)
+//             carMakeInput.classList.remove('input-valid')
+//             // carDetailsLabel.classList.remove('input-valid')
+//             carMakeInput.classList.add('input-invalid')
+//             // carDetailsLabel.classList.add('input-invalid')
+//         } else { 
+//             document.getElementById('car-make-error').remove()
+//             carMakeInput.classList.remove('input-invalid')
+//             // carDetailsLabel.classList.remove('input-invalid')
+//             carMakeInput.classList.add('input-valid')
+//             // carDetailsLabel.classList.add('input-valid')
+//     } 
+// }
 
-// currentYear > carYearInput (4 digit number) > 1990
-function validateCarYear (input) {
-    let errorElement = document.createElement('p')
-    errorElement.id = "car-year-error"
-    // console.log(input.value)
-        if (input.value === "") {
-            errorElement.innerText = 'Car year is required!'
-            document.getElementById('car-field').appendChild(errorElement)
-            carYearInput.classList.remove('input-valid')
-            // carDetailsLabel.classList.remove('input-valid')
-            carYearInput.classList.add('input-invalid')
-            // carDetailsLabel.classList.add('input-invalid')
-        } else { 
-            document.getElementById('car-model-error').remove()
-            carYearInput.classList.remove('input-invalid')
-            // carDetailsLabel.classList.remove('input-invalid')
-            carYearInput.classList.add('input-valid')
-            // carDetailsLabel.classList.add('input-valid')
-    } 
-}
-
-function validateCarMake (input) {
-    let errorElement = document.createElement('p')
-    errorElement.id = "car-make-error"
-    // console.log(input.value)
-        if (input.value === "") {
-            errorElement.innerText = 'Car make is required!'
-            document.getElementById('car-field').appendChild(errorElement)
-            carMakeInput.classList.remove('input-valid')
-            // carDetailsLabel.classList.remove('input-valid')
-            carMakeInput.classList.add('input-invalid')
-            // carDetailsLabel.classList.add('input-invalid')
-        } else { 
-            document.getElementById('car-make-error').remove()
-            carMakeInput.classList.remove('input-invalid')
-            // carDetailsLabel.classList.remove('input-invalid')
-            carMakeInput.classList.add('input-valid')
-            // carDetailsLabel.classList.add('input-valid')
-    } 
-}
-
-function validateCarModel (input) {
-    let errorElement = document.createElement('p')
-    errorElement.id = "car-model-error"
-    // console.log(input.value)
-        if (input.value === "") {
-            errorElement.innerText = 'Car model is required!'
-            document.getElementById('car-field').appendChild(errorElement)
-            carModelInput.classList.remove('input-valid')
-            // carDetailsLabel.classList.remove('input-valid')
-            carModelInput.classList.add('input-invalid')
-            // carDetailsLabel.classList.add('input-invalid')
-        } else { 
-            document.getElementById('car-model-error').remove()
-            carModelInput.classList.remove('input-invalid')
-            // carDetailsLabel.classList.remove('input-invalid')
-            carModelInput.classList.add('input-valid')
-            // carDetailsLabel.classList.add('input-valid')
-    } 
-}
-
+// function validateCarModel (input) {
+//     let errorElement = document.createElement('p')
+//     errorElement.id = "car-model-error"
+//     console.log(input.value)
+//         if (input.value === "") {
+            // if (document.getElementById('car-model-error')) {
+            //         document.getElementById('car-model-error').remove()
+            // }   
+//             errorElement.innerText = 'Car model is required!'
+//             document.getElementById('car-field').appendChild(errorElement)
+//             carModelInput.classList.remove('input-valid')
+//             // carDetailsLabel.classList.remove('input-valid')
+//             carModelInput.classList.add('input-invalid')
+//             // carDetailsLabel.classList.add('input-invalid')
+//         } else { 
+//             document.getElementById('car-model-error').remove()
+//             carModelInput.classList.remove('input-invalid')
+//             // carDetailsLabel.classList.remove('input-invalid')
+//             carModelInput.classList.add('input-valid')
+//             // carDetailsLabel.classList.add('input-valid')
+//     } 
+// }
 
 function validateStartDate (input) {
     let errorElement = document.createElement('p')
     errorElement.id = "start-date-error"
-    // console.log(input.value)
+    console.log(input.value)
         if (input.value === "") {
             errorElement.innerText = 'Start date is required!'
             document.getElementById('start-date-field').appendChild(errorElement)
@@ -159,7 +169,7 @@ function validateStartDate (input) {
     function validateDays (input) {
         let errorElement = document.createElement('p')
         errorElement.id = "num-days-error"
-        // console.log(input.value)
+        console.log(input.value)
             if (input.value === "") {
                 errorElement.innerText = 'Number of days is required!'
                 document.getElementById('days-field').appendChild(errorElement)
@@ -176,11 +186,10 @@ function validateStartDate (input) {
         } 
     }
     
-
 function validateCardNum(input) {
         let errorElement = document.createElement('p')
         errorElement.id = "card-num-error"
-        // console.log(input.value)
+        console.log(input.value)
             if (input.value === "") {
                 errorElement.innerText = 'Credit card number is required!'
                 document.getElementById('credit-card-field').appendChild(errorElement)
@@ -200,7 +209,7 @@ function validateCardNum(input) {
 function validateCardCVV(input) {
         let errorElement = document.createElement('p')
         errorElement.id = "cvv-error"
-        // console.log(input.value)
+        console.log(input.value)
             if (input.value === "") {
                 errorElement.innerText = 'CVV is required!'
                 document.getElementById('cvv-field').appendChild(errorElement)
@@ -220,7 +229,7 @@ function validateCardCVV(input) {
 function validateCardExpDate(input) {
         let errorElement = document.createElement('p')
         errorElement.id = "exp-date-error"
-        // console.log(input.value)
+        console.log(input.value)
             if (input.value === "") {
                 errorElement.innerText = 'Expiration date is required!'
                 document.getElementById('expiration-field').appendChild(errorElement)
