@@ -39,20 +39,37 @@
   margin-right: 0;
 }
 
-.input-invalid > label {
+/* .input-invalid > label {
     color: #DC2626;
+} */
+
+label.input-invalid {
+  color: #DC2626;
 }
 
-.input-invalid > input {
+/* .input-invalid > input {
+  border-color:  #DC2626;
+} */
+
+input.input-invalid {
   border-color:  #DC2626;
 }
 
-.input-valid > label {
+/* .input-valid > label {
+  color: #22C55E
+} */
+
+label.input-valid {
   color: #22C55E
 }
 
-.input-valid > input {
+/* .input-valid > input {
+  border-color: #22C55E;
+} */
+
+input.input-valid {
   border-color: #22C55E;
 }
+
 
 
